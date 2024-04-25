@@ -140,4 +140,4 @@
 - **`lolcat`**: Display files in rainbow colors.
   - **Use Case**: Adding colorful text output for file contents.
 
-<----https://nmap.org/book/legal-issues.html--->
+<!----https://nmap.org/book/legal-issues.html--->
