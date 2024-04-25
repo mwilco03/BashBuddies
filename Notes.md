@@ -70,8 +70,7 @@
   - **Common Flags**: `-l` (lines), `-w` (words), `-c` (bytes)
   - **Use Case**: Count lines, words, or characters in a file.
   - **Example**: `wc -l key_val.csv`
-  - **Example**: `TOTAL=$(cat /var/log/any.log | wc -l);
-                  cat /var/log/any.log | awk -v total=$TOTAL '{printf "%0*d %s\n", length(total), NR, $0}' `
+  - **Example**: ```TOTAL=$(wc -l /var/log/any.log); awk -v total=$TOTAL '{printf "%0*d %s\n", length(total), NR, $0}' /var/log/any.log```
 
 ### Data Manipulation:
 - **`seq`**: Print a sequence of numbers.
