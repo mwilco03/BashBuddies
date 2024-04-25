@@ -68,9 +68,10 @@
   - **Example**: `tail key_val.csv`
 - **`wc`**: Print newline, word, and byte counts for each file.
   - **Common Flags**: `-l` (lines), `-w` (words), `-c` (bytes)
-  - **Use Case**: Count lines, words, or characters in a file.
+  - **Use Case**: Count lines, words, or characters in a file. (How big is it?)
   - **Example**: `wc -l key_val.csv`
-  - **Example**: ```TOTAL=$(wc -l /var/log/any.log); awk -v total=$TOTAL '{printf "%0*d %s\n", length(total), NR, $0}' /var/log/any.log```
+  - **Example**: ```TOTAL=$(wc -l /var/log/any.log);
+    awk -v total=$TOTAL '{printf "%0*d %s\n", length(total), NR, $0}' /var/log/any.log```
 
 ### Data Manipulation:
 - **`seq`**: Print a sequence of numbers.
