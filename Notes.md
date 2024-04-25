@@ -1,23 +1,34 @@
-#Bash
-##*vars*
- - Must be touching
- - x="Hello World" ✔️
- - x = "s" ❌
-##*type*
- - type  
-##*socket*
-##if 
-##for loop
-##while loop
-##brace expansion
+# Bash
 
-#Bins
-##jq / strings / file
-##seq / shuf / 
-##curl / wget
-##awk / sed / tr / cut / grep
-##nano / vi
-##head / tail / wc 
-##grep / fzf / zgrep
-##cat / zcat / lolcat
-##man
+## Variables
+- Must be touching
+- `x="Hello World"` ✔️
+- `x = "s"` ❌
+
+## Commands
+### type
+
+### Socket
+
+### Conditional Statements
+#### if
+
+### Loops
+#### for loop
+#### while loop
+
+### Brace Expansion
+
+# Binaries
+
+## Text Processing and File Management
+### `jq`, `strings`, `file`
+### `seq`, `shuf`
+### `curl`, `wget`
+### `awk`, `sed`, `tr`, `cut`, `grep`
+### `nano`, `vi`
+### `head`, `tail`, `wc`
+### `grep`, `fzf`, `zgrep`
+### `cat`, `zcat`, `lolcat`
+### `man`
+
