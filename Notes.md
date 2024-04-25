@@ -7,14 +7,22 @@
 - `X= "s" ` ❌
 - `X ="s" ` ❌
 
-## Commands
-### type
-
-### Socket
-
+## Syntax
+### types
+- **Arrays**
+- **
+### Bash-isms
+- `-` Representation for STDOUT it will return to screen
+- `:` Evaulates as true
+- `[[]]` Evaluates conditional (if statement). 
+- `$` Evauates as a varible.
+- `/dev/<tcp|udp>/<HOST>/<PORT>` Opens a direct connection to that host on that port.
+- `$()` Evaulates as do this before.
+- `history` List of commands that bash has history of
+- `!!` Run the last command that was entered.
+- `!#` Run the last command from # in in history.
 ### Conditional Statements
 #### if
-
 ### Loops
 #### for loop
 #### while loop
@@ -26,40 +34,33 @@
 - **`awk`**: A powerful text processing and pattern scanning language.
   - **Common Flags**: `-F` (field separator), `-v` (variable assignment)
   - **Use Case**: Transforming text data, extracting columns, and complex filtering.
-  - **Example**:
-  - `cat key_val.csv | awk '{print $1}'`
+  - **Example**: `cat key_val.csv | awk '{print $1}'`
   - `cat key_val.csv | awk '{printf "%04d %s\n", NR, $0}'`
   - <code>TOTAL=$(cat /var/log/dpkg.log | wc -l ); cat /var/log/dpkg.log | awk -v total=$TOTAL '{printf "%0*d %s\n", length(total), NR, $0}' </code>
 - **`sed`**: Stream editor for filtering and transforming text.
   - **Common Flags**: `-i` (edit files in-place), `-e` (add script)
   - **Use Case**: Find and replace text within files.
-  - **Example**:
-  - `cat key_val.csv | sed 's/key/other_key/g'`
+  - **Example**: `cat key_val.csv | sed 's/key/other_key/g'`
 - **`tr`**: Translate or delete characters.
   - **Common Flags**: `-d` (delete characters), `-s` (squeeze repeated characters)
   - **Use Case**: Convert lowercase to uppercase, remove or replace characters.
-  - **Example**:
-  - `cat key_val.csv | tr "\t" " "`
+  - **Example**: `cat key_val.csv | tr "\t" " "`
 - **`cut`**: Remove sections from each line of files.
   - **Common Flags**: `-f` (fields), `-d` (delimiter)
   - **Use Case**: Extract columns from text data.
-  - **Example**:
-  - `cat key_val.csv | cut -d"," -f1`
+  - **Example**: `cat key_val.csv | cut -d"," -f1`
 - **`grep`**: Search for patterns in text.
   - **Common Flags**: `-i` (ignore case), `-r` (recursive), `-E` (extended regex), `-v` (exclude)
   - **Use Case**: Search for text in files, highlighting matching lines.
-  - **Example**:
-  - `cat key_val.csv | grep important'`
+  - **Example**: `cat key_val.csv | grep important'`
   - `cat key_val.csv | grep -v unimportant'`
 - **`uniq`**: Report or omit repeated lines.
   - **Common Flags**: `-c` (count), `-u` (unique)
   - **Use Case**: Finding or filtering out duplicate entries in a sorted file.
-  - **Example**:
-  - `cat key_val.csv | sort | uniq | sort`
+  - **Example**: `cat key_val.csv | sort | uniq | sort`
 - **`awk '!a[$0]++'`**: Remove duplicate lines, keeping the first occurrence.
   - **Use Case**: Similar to `uniq`, but works on unsorted data.
-  - **Example**:
-  - `cat key_val.csv | awk '!a[$0]++'`
+  - **Example**: `cat key_val.csv | awk '!a[$0]++'`
 
 ### File Manipulation:
 - **`cat`**: Concatenate and display files.
@@ -81,23 +82,29 @@
   - **Common Flags**: `-l` (lines), `-w` (words), `-c` (bytes)
   - **Use Case**: Count lines, words, or characters in a file. (How big is it?)
   - **Example**: `wc -l key_val.csv`
-  - **Example**: `cat `
 
 ### Data Manipulation:
 - **`seq`**: Print a sequence of numbers.
   - **Common Flags**: `-s` (separator), `-w` (equal width)
   - **Use Case**: Generate sequences of numbers for loops and lists.
+  - **Example**: `seq 1 9`
+  - `seq 1 2 9`
 - **`shuf`**: Generate random permutations.
   - **Common Flags**: `-n` (output count)
   - **Use Case**: Randomly shuffle lines in a file or list.
+  - **Example**: `seq 1 9 | shuf`
 - **`sort`**: Sort lines of text files.
   - **Common Flags**: `-n` (numeric sort), `-r` (reverse), `-u` (unique)
   - **Use Case**: Sort data in files.
+  - **Example**: `cat key_val.csv | sort`
+  - `cat key_val.csv | sort | uniq | sort`
+  - `cat key_val.csv | sort -u`
 
 ### Network Tools:
 - **`curl`**: Transfer data from or to a server.
-  - **Common Flags**: `-o` (output file), `-L` (follow redirects)
+  - **Common Flags**: `-o` (output file), `-L` (follow redirects) `-H` (header) `-s` (silent) `-k` (ignore ssl)
   - **Use Case**: Downloading files or querying web services.
+  - **Example**: `curl https://www.reddit.com/r/Showerthoughts/comments/1ccsulu/proportionally_mario_is_more_blue_than_red/.json`
 - **`wget`**: Non-interactive network downloader.
   - **Common Flags**: `-r` (recursive), `-O` (output document)
   - **Use Case**: Downloading files from the internet.
@@ -133,3 +140,4 @@
 - **`lolcat`**: Display files in rainbow colors.
   - **Use Case**: Adding colorful text output for file contents.
 
+<----https://nmap.org/book/legal-issues.html--->
