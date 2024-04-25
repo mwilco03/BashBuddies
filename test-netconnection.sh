@@ -1,5 +1,5 @@
 #!/bin/bash
-# Port check
+# Port check nmap-like
 # Native Bash ballin so hard 
 # Credit ZP/Bunyon , MW/Quix
 # Function that prints the usage info
