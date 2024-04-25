@@ -116,8 +116,7 @@
 - **`tac`**: Concatenate and print files in reverse.
   - **Use Case**: Display file contents starting from the last line.
   - **Example**:  Outputs "line3", "line2", "line1".
-    - **Command**:
-      - `echo -e "line1\nline2\nline3" | tac`
+    - **Command**: `echo -e "line1\nline2\nline3" | tac`
     - **Outputs**:
       - `line3`
       - `line2`
@@ -127,8 +126,7 @@
   - **Common Flags**: `-n` (number of lines)
   - **Use Cases**: View the beginning of a file.
   - **Example**: `` Outputs "line1" and "line2".
-    - **Command**:
-      - `echo -e "line1\nline2\nline3" | head -n 2`
+    - **Command**: `echo -e "line1\nline2\nline3" | head -n 2`
     - **Outputs**:
       - `line1`
       - `line2`
@@ -137,8 +135,7 @@
   - **Common Flags**: `-n` (number of lines), `-f` (follow file growth)
   - **Use Cases**: Monitor changes in file content dynamically.
   - **Example**: 
-    - **Command**:
-      - `echo -e "line1\nline2\nline3" | tail -n 2`
+    - **Command**: `echo -e "line1\nline2\nline3" | tail -n 2`
     - **Outputs**:
       - `line2`
       - `line3`
