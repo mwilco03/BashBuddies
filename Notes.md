@@ -23,12 +23,12 @@
 
 ## Text Processing and File Management
 ### `jq`, `strings`, `file`
-### `seq`, `shuf`, `sort`, `uniq`, `b-unique`
+### `seq`, `shuf`, `sort`, `uniq`, `awk '!a[$0]++'`
 ### `curl`, `wget`
 ### `awk`, `sed`, `tr`, `cut`, `grep`
 ### `nano`, `vi`
 ### `head`, `tail`, `wc`
 ### `grep`, `fzf`, `zgrep`
 ### `cat`, `zcat`, `lolcat` , `tac`
-### `man` 
+### `man`, `which`, `locate`, `find`, `command` 
 
