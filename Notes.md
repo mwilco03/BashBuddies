@@ -146,3 +146,133 @@
   - **Example**:  
     - **Command**: `echo "hello world" | wc -w`       **Outputs**: `2`
     - **Command**: `echo -e "hello\nworld" | wc -l`   **Outputs**: `2`
+   
+## Data Manipulation
+### `seq`
+- **Description**: Print a sequence of numbers.
+- **Common Flags**: `-s` (separator), `-w` (equal width)
+- **Use Case**: Generate sequences of numbers for loops and lists.
+- **Example**:
+  - **Command**: `seq 1 5`
+  - **Output**:
+    - `1`
+    - `2`
+    - `3`
+    - `4`
+    - `5`
+
+### `shuf`
+- **Description**: Generate random permutations.
+- **Common Flags**: `-n` (output count)
+- **Use Case**: Randomly shuffle lines in a file or list.
+- **Example**:
+  - **Command**: `echo -e "1\n2\n3" | shuf`
+  - **Output**: Random order of `1`, `2`, and `3`
+
+### `sort`
+- **Description**: Sort lines of text files.
+- **Common Flags**: `-n` (numeric sort), `-r` (reverse), `-u` (unique)
+- **Use Case**: Sort data in files.
+- **Example**:
+  - **Command**: `echo -e "3\n1\n2" | sort`
+  - **Output**:
+    - `1`
+    - `2`
+    - `3`
+
+## Network Tools
+### `curl`
+- **Description**: Transfer data from or to a server.
+- **Common Flags**: `-o` (output file), `-L` (follow redirects), `-k` (ignore ssl error),
+- **Common Flags**: `-s` (silent), `-f` (fail quietly), `-k` (ignore ssl error),
+- **Common Flags**: `-H` (header), `-A` (user-agent), `-d` (data),
+- **Use Case**: Downloading files or querying web services.
+- **Example**:
+  - **Command**: `curl -o example.html http://example.com`
+  - **Output**: Downloads `example.com` into `example.html`.
+  - **Command**: `curl -ksL http://example.com`
+  - **Output**: Returns html content, follwoing links, ignoring certificate errors, no progress bar.
+
+### `wget`
+- **Description**: Non-interactive network downloader.
+- **Common Flags**: `-r` (recursive), `-O` (output document)
+- **Use Case**: Downloading files from the internet.
+- **Example**:
+  - **Command**: `wget -O example.html http://example.com`
+  - **Output**: Downloads `example.com` into `example.html`
+
+## Search and Locate Commands
+### `man`
+- **Description**: Interface to the system reference manuals.
+- **Use Case**: Accessing manual pages for other commands.
+- **Example**:
+  - **Command**: `man ls` **Output**: Displays the manual page for the `ls` command.
+
+### `which`
+- **Description**: Locate a command.
+- **Use Case**: Finding the full path of shell commands.
+- **Example**:
+  - **Command**: `which ls`
+  - **Output**: `/bin/ls`
+
+### `locate`
+- **Description**: Find files by name. Must be used in conjunction with updatedb.
+- **Use Case**: Quickly searching for files by name, using an indexed database.
+- **Example**:
+  - **Command**: `locate myfile.txt`
+  - **Output**: Lists paths containing `myfile.txt`
+
+### `find`
+- **Description**: Search for files in a directory hierarchy.
+- **Common Flags**: `-name` (file name), `-iname` (file case insensitivename),
+- **Common Flags**: `-type` (type of file directory(d)/file(f)), `-or` (used when serching for multiples)
+- **Common Flags**: `-exec` (execute command after finding file), `-and` (used when serching for multiples)
+- **Use Case**: Finding files and performing actions on them.
+- **Example**:
+  - **Command**: `find /home -name "example.txt"` **Output**: `/home/user/example.txt`
+  - **Command**: `find /home -iname "example.txt"` **Output**: `/home/user/Example.txt`
+  - **Command**: `find /home -type d "ec2-user"` **Output**: `/home/user/ec2-user`
+
+### `command`
+- **Description**: Perform a simple command or display information about commands.
+- **Use Case**: Check if a command exists and run it.
+- **Example**:
+  - **Command**: `command -v ls` **Output**: `/bin/ls`
+
+## Advanced Text Searching
+### `fzf`
+- **Description**: A command-line fuzzy finder.
+- **Use Case**: Search through complex lists and command histories quickly.
+- **Example**:
+  - **Command**: `echo -e "apple\nbanana\ncarrot" | fzf`
+  - **Output**: Interactive search interface for list selection.
+
+## Compressed File Viewing
+### `zgrep`
+- **Description**: `grep` through compressed files.
+- **Use Case**: Searching inside compressed files without explicitly decompressing.
+- **Example**:
+  - **Command**: `zgrep "pattern" file.gz`
+  - **Output**: Lines matching "pattern" in `file.gz`
+
+### `zcat`
+- **Description**: Display compressed files.
+- **Use Case**: Viewing the contents of gzipped files without decompressing.
+- **Example**:
+  - **Command**: `zcat file.gz`
+  - **Output**: Displays the contents of `file.gz`
+
+## Editors
+### `vi`
+- **Description**: Classic text editor with powerful features.
+- **Use Case**: Editing text files, programming, script editing, no quitting, no escape.
+- **Example**:
+  - **Command**: `vi file.txt`
+  - **Output**: Opens `file.txt` in the `vi` editor.
+
+### `nano`
+- **Description**: Newer text editor with powerful features.
+- **Use Case**: Editing text files, programming, script editing, intuitive.
+- **Example**:
+  - **Command**: `nano file.txt`
+  - **Output**: Opens `file.txt` in the `nano` editor.
