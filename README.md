@@ -1,6 +1,7 @@
 # BashBuddies
 Bash Training for friends
 ## Credit 
-Author : asmrtfm / ZP 
+This would not be possible with out all of the suppport.
 
-Other Author : mwilco03 / MW
+Author : [asmrtfm](https://github.com/asmrtfm "Zach Pendelton")
+Other Author : [mwilco03](https://github.com/mwilco03)
