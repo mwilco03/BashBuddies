@@ -4,6 +4,8 @@
 - Must be touching
 - `X="Hello World"` ✔️
 - `X = "s"` ❌
+- `X= "s" ` ❌
+- `X ="s" ` ❌
 
 ## Commands
 ### type
