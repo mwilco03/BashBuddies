@@ -106,7 +106,7 @@
       - `apple`
       - `banana`
 
-## File Manipulation
+## File Manipulation / Analysis
 - **`cat`**: Concatenate and display files.
   - **Common Flags**: `-n` (number all output lines)
   - **Use Cases**: Combine multiple files or display file contents.
@@ -121,6 +121,11 @@
       - `line3`
       - `line2`
       - `line1`
+  
+- **`lolcat`**: Concatenate and print files rainbows and unicorns.
+  - **Use Case**: Display file contents with color.
+  - **Example**:  Outputs "line3", "line2", "line1".
+    - **Command**: `echo -e "line1\nline2\nline3" | lolcat` **Outputs**: Smiles
 
 - **`head`**: Output the first part of files.
   - **Common Flags**: `-n` (number of lines)
