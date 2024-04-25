@@ -75,50 +75,110 @@
 - **`tr`**: Translate or delete characters.
   - **Common Flags**: `-d` (delete characters), `-s` (squeeze repeated characters)
   - **Use Cases**: Convert lowercase to uppercase, remove or replace characters.
-  - **Example**: `echo "hello" | tr '[:lower:]' '[:upper:]'` Outputs "HELLO".
-
+  - **Example**: Outputs "".
+    - **Command**:
+      - `echo "hello" | tr '[:lower:]' '[:upper:]'`
+    - **Outputs**:
+      - `HELLO`
+    - **Command**:
+      - `echo "hello\tworld" | tr '\t' ' '`
+    - **Outputs**:
+      - `hello world`
+        
 - **`cut`**: Remove sections from each line of files.
   - **Common Flags**: `-f` (fields), `-d` (delimiter)
   - **Use Cases**: Extract columns from text data.
-  - **Example**: `echo "name,age" | cut -d',' -f1` Outputs "name".
+  - **Example**:  
+    - **Command**:
+      - `echo "name,age" | cut -d',' -f1`
+    - **Outputs**:
+      - `name`
 
 - **`grep`**: Search for patterns in text.
   - **Common Flags**: `-i` (ignore case), `-r` (recursive), `-E` (extended regex), `-v` (exclude)
   - **Use Cases**: Search for text in files, highlighting matching lines.
   - **Examples**:
-    - `echo "hello" | grep 'Hello'` (No output due to case sensitivity)
-    - `echo "hello" | grep -i 'Hello'` Outputs "hello".
-
+    - **Command**:
+      - `echo "hello" | grep 'Hello'`
+    - **Outputs**:
+      - Nothing no match (case sensitivity)
+    - **Command**:
+      - `echo "hello" | grep -i 'Hello'`
+    - **Outputs**:
+      - `hello`
+    - **Command**:
+      - `echo "hello" | grep -v 'ello'`
+    - **Outputs**:
+      - Nothing excluded match
+     
 - **`uniq`**: Report or omit repeated lines.
   - **Common Flags**: `-c` (count), `-u` (unique)
   - **Use Cases**: Finding or filtering out duplicate entries in a sorted file.
-  - **Example**: `echo -e "apple\napple\nbanana" | sort | uniq` Outputs "apple" and "banana".
+  - **Example**: 
+    - **Command**:
+      - `echo -e "apple\napple\nbanana" | sort | uniq | sort`
+    - **Outputs**:
+      - `apple`
+      - `banana`
 
 - **`awk '!a[$0]++'`**: Remove duplicate lines, keeping the first occurrence.
-  - **Use Case**: Similar to `uniq`, but works on unsorted data.
-  - **Example**: `echo -e "apple\napple\nbanana" | awk '!a[$0]++'` Outputs "apple" and "banana".
+  - **Use Case**: Similar to `uniq`, but works, and works on unsorted data.
+  - **Example**:  
+    - **Command**:
+      - `echo -e "apple\napple\nbanana" | awk '!a[$0]++'`
+    - **Outputs**:
+      - `apple`
+      - `banana`
 
 ## File Manipulation
 - **`cat`**: Concatenate and display files.
   - **Common Flags**: `-n` (number all output lines)
   - **Use Cases**: Combine multiple files or display file contents.
-  - **Example**: `cat file.txt` Outputs the contents of `file.txt`.
+  - **Example**:  .
+    - **Command**:
+      - `cat file.txt`
+    - **Outputs**:
+      - Outputs the contents of `file.txt`
 
 - **`tac`**: Concatenate and print files in reverse.
   - **Use Case**: Display file contents starting from the last line.
-  - **Example**: `echo -e "line1\nline2\nline3" | tac` Outputs "line3", "line2", "line1".
+  - **Example**:  Outputs "line3", "line2", "line1".
+    - **Command**:
+      - `echo -e "line1\nline2\nline3" | tac`
+    - **Outputs**:
+      - `line3`
+      - `line2`
+      - `line1`
 
 - **`head`**: Output the first part of files.
   - **Common Flags**: `-n` (number of lines)
   - **Use Cases**: View the beginning of a file.
-  - **Example**: `echo -e "line1\nline2\nline3" | head -n 2` Outputs "line1" and "line2".
+  - **Example**: `` Outputs "line1" and "line2".
+    - **Command**:
+      - `echo -e "line1\nline2\nline3" | head -n 2`
+    - **Outputs**:
+      - `line1`
+      - `line2`
 
 - **`tail`**: Output the last part of files.
   - **Common Flags**: `-n` (number of lines), `-f` (follow file growth)
   - **Use Cases**: Monitor changes in file content dynamically.
-  - **Example**: `echo -e "line1\nline2\nline3" | tail -n 2` Outputs "line2" and "line3".
+  - **Example**: 
+    - **Command**:
+      - `echo -e "line1\nline2\nline3" | tail -n 2`
+    - **Outputs**:
+      - `line2`
+      - `line3`
 
 - **`wc`**: Print newline, word, and byte counts for each file.
   - **Common Flags**: `-l` (lines), `-w` (words), `-c` (bytes)
   - **Use Cases**: Count lines, words, or characters in a file.
-  - **Example**: `echo "hello world" | wc -w` Outputs "2" (words).
+  - **Example**:  Outputs "2" (words).
+    - **Command**:
+      - `echo "hello world" | wc -w`
+    - **Outputs**:
+      - `2`
+    - **Command**:
+      - `echo -e "hello\nworld" | wc -l`
+    - **Outputs**:
+      - `2`
