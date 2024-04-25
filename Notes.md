@@ -56,8 +56,7 @@
   - **Common Flags**: `-F` (field separator), `-v` (variable assignment)
   - **Use Cases**: Transforming text data, extracting columns, and complex filtering.
   - **Examples**:
-    - **Command**:
-      - `echo -e "name,age\nAlice,21\nBob,22" | awk -F',' '{print $2}'` 
+    - **Command**: `echo -e "name,age\nAlice,21\nBob,22" | awk -F',' '{print $2}'` 
     - **Outputs**:
       - `age`
       - `21`
@@ -67,56 +66,34 @@
   - **Common Flags**: `-i` (edit files in-place), `-e` (add script)
   - **Use Cases**: Find and replace text within files.
   - **Example**: 
-    - **Command**:
-      - `echo "hello world" | sed 's/world/universe/'`
-    - **Outputs**:
-      - `hello universe`
+    - **Command**: `echo "hello world" | sed 's/world/universe/'` **Outputs**: `hello universe`
 
 - **`tr`**: Translate or delete characters.
   - **Common Flags**: `-d` (delete characters), `-s` (squeeze repeated characters)
   - **Use Cases**: Convert lowercase to uppercase, remove or replace characters.
-  - **Example**: Outputs "".
-    - **Command**:
-      - `echo "hello" | tr '[:lower:]' '[:upper:]'`
-    - **Outputs**:
-      - `HELLO`
-    - **Command**:
-      - `echo "hello\tworld" | tr '\t' ' '`
-    - **Outputs**:
-      - `hello world`
+  - **Example**: 
+    - **Command**: `echo "hello" | tr '[:lower:]' '[:upper:]'`    **Outputs**: `HELLO`
+    - **Command**: `echo "hello\tworld" | tr '\t' ' '`            **Outputs**: `hello world`
         
 - **`cut`**: Remove sections from each line of files.
   - **Common Flags**: `-f` (fields), `-d` (delimiter)
   - **Use Cases**: Extract columns from text data.
   - **Example**:  
-    - **Command**:
-      - `echo "name,age" | cut -d',' -f1`
-    - **Outputs**:
-      - `name`
+    - **Command**: `echo "name,age" | cut -d',' -f1` **Outputs**: `name`
 
 - **`grep`**: Search for patterns in text.
   - **Common Flags**: `-i` (ignore case), `-r` (recursive), `-E` (extended regex), `-v` (exclude)
   - **Use Cases**: Search for text in files, highlighting matching lines.
   - **Examples**:
-    - **Command**:
-      - `echo "hello" | grep 'Hello'`
-    - **Outputs**:
-      - Nothing no match (case sensitivity)
-    - **Command**:
-      - `echo "hello" | grep -i 'Hello'`
-    - **Outputs**:
-      - `hello`
-    - **Command**:
-      - `echo "hello" | grep -v 'ello'`
-    - **Outputs**:
-      - Nothing excluded match
+    - **Command**: `echo "hello" | grep 'Hello'`     **Outputs**: Nothing no match (case sensitivity)
+    - **Command**: `echo "hello" | grep -i 'Hello'`  **Outputs**: `hello`
+    - **Command**: `echo "hello" | grep -v 'ello'`   **Outputs**: Nothing excluded match
      
 - **`uniq`**: Report or omit repeated lines.
   - **Common Flags**: `-c` (count), `-u` (unique)
   - **Use Cases**: Finding or filtering out duplicate entries in a sorted file.
   - **Example**: 
-    - **Command**:
-      - `echo -e "apple\napple\nbanana" | sort | uniq | sort`
+    - **Command**: `echo -e "apple\napple\nbanana" | sort | uniq | sort`
     - **Outputs**:
       - `apple`
       - `banana`
@@ -124,8 +101,7 @@
 - **`awk '!a[$0]++'`**: Remove duplicate lines, keeping the first occurrence.
   - **Use Case**: Similar to `uniq`, but works, and works on unsorted data.
   - **Example**:  
-    - **Command**:
-      - `echo -e "apple\napple\nbanana" | awk '!a[$0]++'`
+    - **Command**: `echo -e "apple\napple\nbanana" | awk '!a[$0]++'`
     - **Outputs**:
       - `apple`
       - `banana`
@@ -134,11 +110,8 @@
 - **`cat`**: Concatenate and display files.
   - **Common Flags**: `-n` (number all output lines)
   - **Use Cases**: Combine multiple files or display file contents.
-  - **Example**:  .
-    - **Command**:
-      - `cat file.txt`
-    - **Outputs**:
-      - Outputs the contents of `file.txt`
+  - **Example**:  
+    - **Command**: `cat file.txt` **Outputs**: Outputs the contents of `file.txt`
 
 - **`tac`**: Concatenate and print files in reverse.
   - **Use Case**: Display file contents starting from the last line.
@@ -173,12 +146,6 @@
 - **`wc`**: Print newline, word, and byte counts for each file.
   - **Common Flags**: `-l` (lines), `-w` (words), `-c` (bytes)
   - **Use Cases**: Count lines, words, or characters in a file.
-  - **Example**:  Outputs "2" (words).
-    - **Command**:
-      - `echo "hello world" | wc -w`
-    - **Outputs**:
-      - `2`
-    - **Command**:
-      - `echo -e "hello\nworld" | wc -l`
-    - **Outputs**:
-      - `2`
+  - **Example**:  
+    - **Command**: `echo "hello world" | wc -w`       **Outputs**: `2`
+    - **Command**: `echo -e "hello\nworld" | wc -l`   **Outputs**: `2`
