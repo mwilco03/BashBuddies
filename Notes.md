@@ -29,7 +29,8 @@
   - **Example**:
   - `cat key_val.csv | awk '{print $1}'`
   - `cat key_val.csv | awk '{printf "%04d %s\n", NR, $0}'`
-  - `TOTAL=$(wc -l /var/log/any.log); awk -v total=$TOTAL '{printf "%0*d %s\n", length(total), NR, $0}' /var/log/any.log`
+  - `TOTAL=$(cat /var/log/dpkg.log | wc -l ); \
+    cat /var/log/dpkg.log | awk -v total=$TOTAL '{printf "%0*d %s\n", length(total), NR, $0}`
 - **`sed`**: Stream editor for filtering and transforming text.
   - **Common Flags**: `-i` (edit files in-place), `-e` (add script)
   - **Use Case**: Find and replace text within files.
