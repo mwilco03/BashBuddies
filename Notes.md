@@ -1,13 +1,17 @@
 # Bash
-
+## Points of consideration
+- Case Sensitivity
+- Shares aliases with PowerShell
+  - ls curl man set sleep wget mkdir mv echo cat cd cp diff history pwd rm sort tee type
 ## Variables
-- Variables must not have spaces around the equals sign.
-  - `X="Hello World"`   ✔️
-  - `X = "Hello World"` ❌
-  - `X= "Hello World"`  ❌
-  - `X ="Hello World"`  ❌
+- Variables must be touching assignment operator `=`.
+  - `X="Hello World"   `✔️
+  - `X = "Hello World" `❌
+  - `X= "Hello World"  `❌
+  - `X ="Hello World"  `❌
 - Are invoked useing `$`
   - `echo $X`
+  - `echo ${X}`
 
 ## Syntax
 ### Types
@@ -15,16 +19,20 @@
 - **Arrays**: Used to store multiple values.
   - **Indexed arrays**: `arr=(value1 value2 value3)`
   - **Associative arrays** (declare explicitly): `declare -A arr; arr[key]=value`
-      - **Not honored in all flavors**
 - **Strings**: Text data that can be manipulated.
 - **Integers**: Used for arithmetic operations.
 
 ### Bash-isms
+- `|` Pass output of one command to another stringing them together.
+- `&` Placed at the end of a command to send it to background.
 - `-` Represents STDOUT, returns output to the screen when used with commands like `echo`.
+- `>` Sends output to a file.
+- `>>` Appends output to a file.
 - `:` Used as a null command (no operation) but returns a zero exit status, helpful in scripts for syntax purposes.
 - `[[]]` Enhances the traditional `[ ]` test command, allowing for more complex expressions and pattern matching.
 - `$` Prefix for accessing the value of a variable.
 - `/dev/<tcp|udp>/<HOST>/<PORT>` Used for creating TCP/UDP connections directly from the shell.
+- `/dev/null` Anything sent here is thrown away.
 - `$()` Command substitution, runs the command inside the parentheses and substitutes its output.
 - `history` Shows the command history list.
 - `!!` Repeats the last command executed.
@@ -292,3 +300,20 @@
 - **Example**:
   - **Command**: `nano file.txt`
   - **Output**: Opens `file.txt` in the `nano` editor.
+
+## Helpers
+### `nohup`
+- **Description**: Shorthand for no hang up means to continue running the command but return the shell.
+- **Use Case**: Long running command will output to `nohup.out` can continue working in that shell.
+- **Example**:
+  - **Command**: `nohup echo "hello world"`
+  - **Output**: `nohup: ignoring input and appending output to 'nohup.out'`
+  - **Command**: `nohup echo "hello world" &`
+  - **Output**: `nohup: ignoring input and appending output to 'nohup.out'`
+ 
+### `tmux`
+- **Description**: Shorthand for terminal multiplexer.
+- **Use Case**: Long running command will output to a different terminal can split screen.
+- **Example**:
+  - **Command**: `tmux`
+  - **Output**: Allows to split screen. (Browser functionality limited)
