@@ -317,3 +317,10 @@
 - **Example**:
   - **Command**: `tmux`
   - **Output**: Allows to split screen. (Browser functionality limited)
+
+### `fg`
+- **Description**: Shorthand for foreground.
+- **Use Case**: Returns a backgrounded process to foreground.
+- **Example**:
+  - **Command**: `fg`
+  - **Output**: Allows alllows backgrounded process to be presented.
