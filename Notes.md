@@ -97,6 +97,11 @@
     - **Outputs**:
       - `apple`
       - `banana`
+    - **Command**: `echo -e "apple\napple\nbanana\napple" | uniq`
+    - **Outputs**:
+      - `apple`
+      - `banana`
+      - `apple`
 
 - **`awk '!a[$0]++'`**: Remove duplicate lines, keeping the first occurrence.
   - **Use Case**: Similar to `uniq`, but works, and works on unsorted data.
