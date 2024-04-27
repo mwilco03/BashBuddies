@@ -10,7 +10,6 @@
   - `echo $X`
 
 ## Syntax
-
 ### Types
 - **Scalars**: Hold single values, either a string or a number.
 - **Arrays**: Used to store multiple values.
@@ -30,6 +29,12 @@
 - `history` Shows the command history list.
 - `!!` Repeats the last command executed.
 - `!#` Repeats a specific command from the command history.
+- `~/.bash_history` The default location for logging commands set by the `$HISTFILE` varible.
+- ` ` By placing a space before your command it does not store that command to .bash_history
+- `$HISTCONTROL` Varible controls which commands are stored in .bash_history (ignorespaces,ignoredups,both)
+- `$HISTSIZE` Dictates the size (number of lines) of history to retain.
+- `$HISTFILESIZE` Dictates the size in bytes of history to retain.
+- `^<FIND>^<REPLACE>` Rerun the last command, finding and replacing the text.
 
 ### Conditional Statements
 #### if
