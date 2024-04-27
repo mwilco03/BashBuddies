@@ -35,7 +35,8 @@
 - `$HISTSIZE` Dictates the size (number of lines) of history to retain.
 - `$HISTFILESIZE` Dictates the size in bytes of history to retain.
 - `^FIND^REPLACE` Rerun the last command, finding and replacing the text.
-
+- `.bash_profile` The code that is ran when you login. Useful to store functions and aliases.
+ 
 ### Conditional Statements
 #### if
 - **Syntax**: `if [ condition ]; then actions; fi`
