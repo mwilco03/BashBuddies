@@ -34,7 +34,7 @@
 - `$HISTCONTROL` Varible controls which commands are stored in .bash_history (ignorespaces,ignoredups,both)
 - `$HISTSIZE` Dictates the size (number of lines) of history to retain.
 - `$HISTFILESIZE` Dictates the size in bytes of history to retain.
-- `^<FIND>^<REPLACE>` Rerun the last command, finding and replacing the text.
+- `^FIND^REPLACE` Rerun the last command, finding and replacing the text.
 
 ### Conditional Statements
 #### if
