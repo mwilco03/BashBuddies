@@ -100,7 +100,8 @@ Variables are invoked using `$`:
 - **Common Flags**: `-i` (edit files in-place), `-e` (add script)
 - **Use Cases**: Find and replace text within files.
 - **Example**: 
-  - **Command**: `echo "hello world" | sed 's/world/universe/'` **Outputs**: `hello universe`
+  - **Command**: `echo "hello world" | sed 's/world/universe/'`
+  - **Outputs**: `hello universe`
 
 ### `tr`
 
@@ -266,7 +267,8 @@ Variables are invoked using `$`:
 ### `curl`
 
 - **[man curl](http://man.he.net/?topic=curl&section=all)**
-- **Common Flags**: `-o` (output file), `-L` (follow redirects), `-k` (ignore SSL errors), `-s` (silent), `-f` (fail quietly), `-H` (header), `-A` (user-agent), `-d` (data)
+- **Common Flags**: `-o` (output file), `-L` (follow redirects), `-k` (ignore SSL errors), `-s` (silent),
+  - `-f` (fail quietly), `-H` (header), `-A` (user-agent), `-d` (data)
 - **Use Case**: Downloading files or querying web services.
 - **Example**:
   - **Command**: `curl -o example.html http://example.com`
