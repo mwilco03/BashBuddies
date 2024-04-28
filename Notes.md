@@ -1,31 +1,39 @@
 # Bash
-## Points of consideration
+
+## Points of Consideration
+
 - Case Sensitivity
-- Shares aliases with PowerShell
-  - ls curl man set sleep wget mkdir mv echo cat cd cp diff history pwd rm sort tee type
-- **[man bash](http://man.he.net/?topic=bash&section=all)**
+- Shares aliases with PowerShell:
+  - ls, curl, man, set, sleep, wget, mkdir, mv, echo, cat, cd, cp, diff, history, pwd, rm, sort, tee, type
+- [man bash](http://man.he.net/?topic=bash&section=all)
+
 ## Variables
-- Variables must be touching assignment operator `=`.
-  - `X="Hello World"   `✔️
-  - `X = "Hello World" `❌
-  - `X= "Hello World"  `❌
-  - `X ="Hello World"  `❌
-- Are invoked useing `$`
-  - `echo $X`
-  - `echo ${X}`
+
+Variables must be directly touching the assignment operator `=`:
+
+- `X="Hello World"  `✔️
+- `X = "Hello World"`❌
+- `X= "Hello World" `❌
+- `X ="Hello World" `❌
+
+Variables are invoked using `$`:
+- `echo $X`
+- `echo ${X}`
 
 ## Syntax
+
 ### Types
-- **Scalars**: Hold single values, either a string or a number.
-- **Arrays**: Used to store multiple values.
+
+- **Arrays**: Store multiple values.
   - **Indexed arrays**: `arr=(value1 value2 value3)`
   - **Associative arrays** (declare explicitly): `declare -A arr; arr[key]=value`
 - **Strings**: Text data that can be manipulated.
 - **Integers**: Used for arithmetic operations.
 
 ### Bash-isms
-- `|` Pass output of one command to another stringing them together.
-- `&` Placed at the end of a command to send it to background.
+
+- `|` Pass output of one command to another, stringing them together.
+- `&` Place at the end of a command to send it to the background.
 - `-` Represents STDOUT, returns output to the screen when used with commands like `echo`.
 - `>` Sends output to a file.
 - `>>` Appends output to a file.
@@ -38,143 +46,189 @@
 - `history` Shows the command history list.
 - `!!` Repeats the last command executed.
 - `!#` Repeats a specific command from the command history.
-- `~/.bash_history` The default location for logging commands set by the `$HISTFILE` varible.
-- ` ` By placing a space before your command it does not store that command to .bash_history
-- `$HISTCONTROL` Varible controls which commands are stored in .bash_history (ignorespaces,ignoredups,both)
+- `~/.bash_history` The default location for logging commands set by the `$HISTFILE` variable.
+- ` ` By placing a space before your command, it does not store that command to `.bash_history`.
+- `$HISTCONTROL` Variable controls which commands are stored in `.bash_history` (ignorespaces, ignoredups, both).
 - `$HISTSIZE` Dictates the size (number of lines) of history to retain.
 - `$HISTFILESIZE` Dictates the size in bytes of history to retain.
 - `^FIND^REPLACE` Rerun the last command, finding and replacing the text.
-- `.bash_profile` The code that is ran when you login. Useful to store functions and aliases.
- 
+- `.bash_profile` The code that is run when you login. Useful to store functions and aliases.
+
 ### Conditional Statements
+
 #### if
+
 - **Syntax**: `if [ condition ]; then actions; fi`
 - **Example**: `if [[ $X -gt 0 ]]; then echo "X is greater than zero"; fi`
 
 ### Loops
+
 #### for loop
+
 - **Syntax**: `for var in list; do actions; done`
 - **Example**: `for i in {1..5}; do echo "Iteration $i"; done`
 
 #### while loop
+
 - **Syntax**: `while [ condition ]; do actions; done`
 - **Example**: `while [[ $X -lt 10 ]]; do echo $X; X=$((X+1)); done`
 
 ### Brace Expansion
+
 - **Example**: `echo {A..C}{1..3}`
 - **Output**: `A1 A2 A3 B1 B2 B3 C1 C2 C3`
 
 # Binaries
 
 ## Text Processing and Filtering
-- **`awk`**: A powerful text processing and pattern scanning language.
-  - **Common Flags**: `-F` (field separator), `-v` (variable assignment)
-  - **Use Cases**: Transforming text data, extracting columns, and complex filtering.
-  - **Examples**:
-    - **Command**: `echo -e "name,age\nAlice,21\nBob,22" | awk -F',' '{print $2}'` 
-    - **Outputs**:
-      - `age`
-      - `21`
-      - `22`
 
-- **`sed`**: Stream editor for filtering and transforming text.
-  - **Common Flags**: `-i` (edit files in-place), `-e` (add script)
-  - **Use Cases**: Find and replace text within files.
-  - **Example**: 
-    - **Command**: `echo "hello world" | sed 's/world/universe/'` **Outputs**: `hello universe`
+### `awk`
 
-- **`tr`**: Translate or delete characters.
-  - **Common Flags**: `-d` (delete characters), `-s` (squeeze repeated characters)
-  - **Use Cases**: Convert lowercase to uppercase, remove or replace characters.
-  - **Example**: 
-    - **Command**: `echo "hello" | tr '[:lower:]' '[:upper:]'`    **Outputs**: `HELLO`
-    - **Command**: `echo "hello\tworld" | tr '\t' ' '`            **Outputs**: `hello world`
+- **[man awk](http://man.he.net/?topic=awk&section=all)**
+- **Common Flags**: `-F` (field separator), `-v` (variable assignment)
+- **Use Cases**: Transforming text data, extracting columns, and complex filtering.
+- **Examples**:
+  - **Command**: `echo -e "name,age\nAlice,21\nBob,22" | awk -F',' '{print $2}'` 
+  - **Outputs**:
+    - `age`
+    - `21`
+    - `22`
+
+### `sed`
+
+- **[man sed](http://man.he.net/?topic=sed&section=all)**
+- **Common Flags**: `-i` (edit files in-place), `-e` (add script)
+- **Use Cases**: Find and replace text within files.
+- **Example**: 
+  - **Command**: `echo "hello world" | sed 's/world/universe/'` **Outputs**: `hello universe`
+
+### `tr`
+
+- **[man tr](http://man.he.net/?topic=tr&section=all)**
+- **Common Flags**: `-d` (delete characters), `-s` (squeeze repeated characters)
+- **Use Cases**: Convert lowercase to uppercase, remove or replace characters.
+- **Examples**: 
+  - **Command**: `echo "hello" | tr '[:lower:]' '[:upper:]'`
+  - **Outputs**: `HELLO`
+  - **Command**: `echo "hello\tworld" | tr '\t' ' '`
+  - **Outputs**: `hello world`
         
-- **`cut`**: Remove sections from each line of files.
-  - **Common Flags**: `-f` (fields), `-d` (delimiter)
-  - **Use Cases**: Extract columns from text data.
-  - **Example**:  
-    - **Command**: `echo "name,age" | cut -d',' -f1` **Outputs**: `name`
+### `cut`
 
-- **`grep`**: Search for patterns in text.
-  - **Common Flags**: `-i` (ignore case), `-r` (recursive), `-E` (extended regex), `-v` (exclude)
-  - **Use Cases**: Search for text in files, highlighting matching lines.
-  - **Examples**:
-    - **Command**: `echo "hello" | grep 'Hello'`     **Outputs**: Nothing no match (case sensitivity)
-    - **Command**: `echo "hello" | grep -i 'Hello'`  **Outputs**: `hello`
-    - **Command**: `echo "hello" | grep -v 'ello'`   **Outputs**: Nothing excluded match
-     
-- **`uniq`**: Report or omit repeated lines.
-  - **Common Flags**: `-c` (count), `-u` (unique)
-  - **Use Cases**: Finding or filtering out duplicate entries in a sorted file.
-  - **Example**: 
-    - **Command**: `echo -e "apple\napple\nbanana" | sort | uniq | sort`
-    - **Outputs**:
-      - `apple`
-      - `banana`
-    - **Command**: `echo -e "apple\napple\nbanana\napple" | uniq`
-    - **Outputs**:
-      - `apple`
-      - `banana`
-      - `apple`
+- **[man cut](http://man.he.net/?topic=cut&section=all)**
+- **Common Flags**: `-f` (fields), `-d` (delimiter)
+- **Use Cases**: Extract columns from text data.
+- **Example**:  
+  - **Command**: `echo "name,age" | cut -d',' -f1`
+  - **Outputs**: `name`
 
-- **`awk '!a[$0]++'`**: Remove duplicate lines, keeping the first occurrence.
-  - **Use Case**: Similar to `uniq`, but works, and works on unsorted data.
-  - **Example**:  
-    - **Command**: `echo -e "apple\napple\nbanana" | awk '!a[$0]++'`
-    - **Outputs**:
-      - `apple`
-      - `banana`
+### `grep`
+
+- **[man grep](http://man.he.net/?topic=grep&section=all)**
+- **Common Flags**: `-i` (ignore case), `-r` (recursive), `-E` (extended regex), `-v` (exclude)
+- **Use Cases**: Search for text in files, highlighting matching lines.
+- **Examples**:
+  - **Command**: `echo "hello" | grep 'Hello'`
+  - **Outputs**: Nothing no match (case sensitivity)
+  - **Command**: `echo "hello" | grep -i 'Hello'`
+  - **Outputs**: `hello`
+  - **Command**: `echo "hello" | grep -v 'ello'`
+  - **Outputs**: Nothing excluded match
+
+### `uniq`
+
+- **[man uniq](http://man.he.net/?topic=uniq&section=all)**
+- **Common Flags**: `-c` (count), `-u` (unique)
+- **Use Cases**: Finding or filtering out duplicate entries in a sorted file.
+- **Examples**: 
+  - **Command**: `echo -e "apple\napple\nbanana" | sort | uniq | sort`
+  - **Outputs**:
+    - `apple`
+    - `banana`
+  - **Command**: `echo -e "apple\napple\nbanana\napple" | uniq`
+  - **Outputs**:
+    - `apple`
+    - `banana`
+    - `apple`
+
+### `awk '!a[$0]++'`
+
+- **[man awk](http://man.he.net/?topic=awk&section=all)**
+- **Use Case**: Similar to `uniq`, but works on unsorted data.
+- **Example**:  
+  - **Command**: `echo -e "apple\napple\nbanana" | awk '!a[$0]++'`
+  - **Outputs**:
+    - `apple`
+    - `banana`
 
 ## File Manipulation / Analysis
-- **`cat`**: Concatenate and display files.
-  - **Common Flags**: `-n` (number all output lines)
-  - **Use Cases**: Combine multiple files or display file contents.
-  - **Example**:  
-    - **Command**: `cat file.txt` **Outputs**: Outputs the contents of `file.txt`
 
-- **`tac`**: Concatenate and print files in reverse.
-  - **Use Case**: Display file contents starting from the last line.
-  - **Example**:  Outputs "line3", "line2", "line1".
-    - **Command**: `echo -e "line1\nline2\nline3" | tac`
-    - **Outputs**:
-      - `line3`
-      - `line2`
-      - `line1`
-  
-- **`lolcat`**: Concatenate and print files rainbows and unicorns.
-  - **Use Case**: Display file contents with color.
-  - **Example**:  Outputs "line3", "line2", "line1".
-    - **Command**: `echo -e "line1\nline2\nline3" | lolcat` **Outputs**: Smiles
+### `cat`
 
-- **`head`**: Output the first part of files.
-  - **Common Flags**: `-n` (number of lines)
-  - **Use Cases**: View the beginning of a file.
-  - **Example**: `` Outputs "line1" and "line2".
-    - **Command**: `echo -e "line1\nline2\nline3" | head -n 2`
-    - **Outputs**:
-      - `line1`
-      - `line2`
+- **[man cat](http://man.he.net/?topic=cat&section=all)**
+- **Common Flags**: `-n` (number all output lines)
+- **Use Cases**: Combine multiple files or display file contents.
+- **Example**:  
+  - **Command**: `cat file.txt`
+  - **Outputs**: Outputs the contents of `file.txt`
 
-- **`tail`**: Output the last part of files.
-  - **Common Flags**: `-n` (number of lines), `-f` (follow file growth)
-  - **Use Cases**: Monitor changes in file content dynamically.
-  - **Example**: 
-    - **Command**: `echo -e "line1\nline2\nline3" | tail -n 2`
-    - **Outputs**:
-      - `line2`
-      - `line3`
+### `tac`
 
-- **`wc`**: Print newline, word, and byte counts for each file.
-  - **Common Flags**: `-l` (lines), `-w` (words), `-c` (bytes)
-  - **Use Cases**: Count lines, words, or characters in a file.
-  - **Example**:  
-    - **Command**: `echo "hello world" | wc -w`       **Outputs**: `2`
-    - **Command**: `echo -e "hello\nworld" | wc -l`   **Outputs**: `2`
-   
+- **[man tac](http://man.he.net/?topic=tac&section=all)**
+- **Use Case**: Display file contents starting from the last line.
+- **Example**:  Outputs "line3", "line2", "line1".
+  - **Command**: `echo -e "line1\nline2\nline3" | tac`
+  - **Outputs**:
+    - `line3`
+    - `line2`
+    - `line1`
+
+### `lolcat`
+
+- **[man lolcat](http://man.he.net/?topic=lolcat&section=all)**
+- **Use Case**: Display file contents with color.
+- **Example**: 
+  - **Command**: `echo -e "line1\nline2\nline3" | lolcat`
+  - **Outputs**: Colorful display
+
+### `head`
+
+- **[man head](http://man.he.net/?topic=head&section=all)**
+- **Common Flags**: `-n` (number of lines)
+- **Use Cases**: View the beginning of a file.
+- **Example**: 
+  - **Command**: `echo -e "line1\nline2\nline3" | head -n 2`
+  - **Outputs**:
+    - `line1`
+    - `line2`
+
+### `tail`
+
+- **[man tail](http://man.he.net/?topic=tail&section=all)**
+- **Common Flags**: `-n` (number of lines), `-f` (follow file growth)
+- **Use Cases**: Monitor changes in file content dynamically.
+- **Example**: 
+  - **Command**: `echo -e "line1\nline2\nline3" | tail -n 2`
+  - **Outputs**:
+    - `line2`
+    - `line3`
+
+### `wc`
+
+- **[man wc](http://man.he.net/?topic=wc&section=all)**
+- **Common Flags**: `-l` (lines), `-w` (words), `-c` (bytes)
+- **Use Cases**: Count lines, words, or characters in a file.
+- **Example**:  
+  - **Command**: `echo "hello world" | wc -w`
+  - **Outputs**: `2`
+  - **Command**: `echo -e "hello\nworld" | wc -l`
+  - **Outputs**: `2`
+
 ## Data Manipulation
+
 ### `seq`
-- **Description**: Print a sequence of numbers.
+
+- **[man seq](http://man.he.net/?topic=seq&section=all)**
 - **Common Flags**: `-s` (separator), `-w` (equal width)
 - **Use Case**: Generate sequences of numbers for loops and lists.
 - **Example**:
@@ -187,7 +241,8 @@
     - `5`
 
 ### `shuf`
-- **Description**: Generate random permutations.
+
+- **[man shuf](http://man.he.net/?topic=shuf&section=all)**
 - **Common Flags**: `-n` (output count)
 - **Use Case**: Randomly shuffle lines in a file or list.
 - **Example**:
@@ -195,7 +250,8 @@
   - **Output**: Random order of `1`, `2`, and `3`
 
 ### `sort`
-- **Description**: Sort lines of text files.
+
+- **[man sort](http://man.he.net/?topic=sort&section=all)**
 - **Common Flags**: `-n` (numeric sort), `-r` (reverse), `-u` (unique)
 - **Use Case**: Sort data in files.
 - **Example**:
@@ -206,20 +262,21 @@
     - `3`
 
 ## Network Tools
+
 ### `curl`
-- **Description**: Transfer data from or to a server.
-- **Common Flags**: `-o` (output file), `-L` (follow redirects), `-k` (ignore ssl error),
-- **Common Flags**: `-s` (silent), `-f` (fail quietly), `-k` (ignore ssl error),
-- **Common Flags**: `-H` (header), `-A` (user-agent), `-d` (data),
+
+- **[man curl](http://man.he.net/?topic=curl&section=all)**
+- **Common Flags**: `-o` (output file), `-L` (follow redirects), `-k` (ignore SSL errors), `-s` (silent), `-f` (fail quietly), `-H` (header), `-A` (user-agent), `-d` (data)
 - **Use Case**: Downloading files or querying web services.
 - **Example**:
   - **Command**: `curl -o example.html http://example.com`
   - **Output**: Downloads `example.com` into `example.html`.
   - **Command**: `curl -ksL http://example.com`
-  - **Output**: Returns html content, follwoing links, ignoring certificate errors, no progress bar.
+  - **Output**: Returns HTML content, following links, ignoring certificate errors, no progress bar.
 
 ### `wget`
-- **Description**: Non-interactive network downloader.
+
+- **[man wget](http://man.he.net/?topic=wget&section=all)**
 - **Common Flags**: `-r` (recursive), `-O` (output document)
 - **Use Case**: Downloading files from the internet.
 - **Example**:
@@ -227,101 +284,114 @@
   - **Output**: Downloads `example.com` into `example.html`
 
 ## Search and Locate Commands
+
 ### `man`
-- **Description**: Interface to the system reference manuals.
+
+- **[man man](http://man.he.net/?topic=man&section=all)**
 - **Use Case**: Accessing manual pages for other commands.
 - **Example**:
-  - **Command**: `man ls` **Output**: Displays the manual page for the `ls` command.
+  - **Command**: `man ls`
+  - **Output**: Displays the manual page for the `ls` command.
 
 ### `which`
-- **Description**: Locate a command.
+
+- **[man which](http://man.he.net/?topic=which&section=all)**
 - **Use Case**: Finding the full path of shell commands.
 - **Example**:
   - **Command**: `which ls`
   - **Output**: `/bin/ls`
 
 ### `locate`
-- **Description**: Find files by name. Must be used in conjunction with updatedb.
+
+- **[man locate](http://man.he.net/?topic=locate&section=all)**
 - **Use Case**: Quickly searching for files by name, using an indexed database.
 - **Example**:
   - **Command**: `locate myfile.txt`
   - **Output**: Lists paths containing `myfile.txt`
 
 ### `find`
-- **Description**: Search for files in a directory hierarchy.
-- **Common Flags**: `-name` (file name), `-iname` (file case insensitivename),
-- **Common Flags**: `-type` (type of file directory(d)/file(f)), `-or` (used when serching for multiples)
-- **Common Flags**: `-exec` (execute command after finding file), `-and` (used when serching for multiples)
+
+- **[man find](http://man.he.net/?topic=find&section=all)**
+- **Common Flags**: `-name` (file name), `-iname` (file case insensitive name), `-type` (type of file directory(d)/file(f)), `-or` (used when searching for multiples), `-exec` (execute command after finding file), `-and` (used when searching for multiples)
 - **Use Case**: Finding files and performing actions on them.
 - **Example**:
-  - **Command**: `find /home -name "example.txt"` **Output**: `/home/user/example.txt`
-  - **Command**: `find /home -iname "example.txt"` **Output**: `/home/user/Example.txt`
-  - **Command**: `find /home -type d "ec2-user"` **Output**: `/home/user/ec2-user`
-
-### `command`
-- **Description**: Perform a simple command or display information about commands.
-- **Use Case**: Check if a command exists and run it.
-- **Example**:
-  - **Command**: `command -v ls` **Output**: `/bin/ls`
+  - **Command**: `find /home -name "example.txt"`
+  - **Output**: `/home/user/example.txt`
+  - **Command**: `find /home -iname "example.txt"`
+  - **Output**: `/home/user/Example.txt`
+  - **Command**: `find /home -type d "ec2-user"`
+  - **Output**: `/home/user/ec2-user`
 
 ## Advanced Text Searching
+
 ### `fzf`
-- **Description**: A command-line fuzzy finder.
+
+- **[man fzf](http://man.he.net/?topic=fzf&section=all)**
 - **Use Case**: Search through complex lists and command histories quickly.
 - **Example**:
   - **Command**: `echo -e "apple\nbanana\ncarrot" | fzf`
   - **Output**: Interactive search interface for list selection.
 
 ## Compressed File Viewing
+
 ### `zgrep`
-- **Description**: `grep` through compressed files.
+
+- **[man zgrep](http://man.he.net/?topic=zgrep&section=all)**
 - **Use Case**: Searching inside compressed files without explicitly decompressing.
 - **Example**:
   - **Command**: `zgrep "pattern" file.gz`
   - **Output**: Lines matching "pattern" in `file.gz`
 
 ### `zcat`
-- **Description**: Display compressed files.
+
+- **[man zcat](http://man.he.net/?topic=zcat&section=all)**
 - **Use Case**: Viewing the contents of gzipped files without decompressing.
 - **Example**:
   - **Command**: `zcat file.gz`
   - **Output**: Displays the contents of `file.gz`
 
 ## Editors
+
 ### `vi`
-- **Description**: Classic text editor with powerful features.
+
+- **[man vi](http://man.he.net/?topic=vi&section=all)**
 - **Use Case**: Editing text files, programming, script editing, no quitting, no escape.
 - **Example**:
   - **Command**: `vi file.txt`
   - **Output**: Opens `file.txt` in the `vi` editor.
 
 ### `nano`
-- **Description**: Newer text editor with powerful features.
+
+- **[man nano](http://man.he.net/?topic=nano&section=all)**
 - **Use Case**: Editing text files, programming, script editing, intuitive.
 - **Example**:
   - **Command**: `nano file.txt`
   - **Output**: Opens `file.txt` in the `nano` editor.
 
 ## Helpers
+
 ### `nohup`
-- **Description**: Shorthand for no hang up means to continue running the command but return the shell.
+
+- **[man nohup](http://man.he.net/?topic=nohup&section=all)**
 - **Use Case**: Long running command will output to `nohup.out` can continue working in that shell.
-- **Example**:
+- **Examples**:
   - **Command**: `nohup echo "hello world"`
   - **Output**: `nohup: ignoring input and appending output to 'nohup.out'`
   - **Command**: `nohup echo "hello world" &`
   - **Output**: `nohup: ignoring input and appending output to 'nohup.out'`
- 
+
 ### `tmux`
-- **Description**: Shorthand for terminal multiplexer.
+
+- **[man tmux](http://man.he.net/?topic=tmux&section=all)**
 - **Use Case**: Long running command will output to a different terminal can split screen.
 - **Example**:
   - **Command**: `tmux`
   - **Output**: Allows to split screen. (Browser functionality limited)
 
 ### `fg`
-- **Description**: Shorthand for foreground.
+
+- **[man fg](http://man.he.net/?topic=fg&section=all)**
 - **Use Case**: Returns a backgrounded process to foreground.
 - **Example**:
   - **Command**: `fg`
-  - **Output**: Allows alllows backgrounded process to be presented.
+  - **Output**: Allows all backgrounded processes to be presented.
