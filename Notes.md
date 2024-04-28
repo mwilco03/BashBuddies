@@ -1,6 +1,5 @@
-# Bash
-
-## Points of Consideration
+# Bash [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
+## Points of Consideration 
 
 - Case Sensitivity
 - Shares aliases with PowerShell:
@@ -10,7 +9,6 @@
 ## Variables
 
 Variables must be directly touching the assignment operator `=`:
-
 - `X="Hello World"  `✔️
 - `X = "Hello World"`❌
 - `X= "Hello World" `❌
@@ -20,10 +18,11 @@ Variables are invoked using `$`:
 - `echo $X`
 - `echo ${X}`
 
-## Syntax
+## Syntax [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### Types
 
+- **Scalars**: Hold single values, either a string or a number.
 - **Arrays**: Store multiple values.
   - **Indexed arrays**: `arr=(value1 value2 value3)`
   - **Associative arrays** (declare explicitly): `declare -A arr; arr[key]=value`
@@ -59,27 +58,48 @@ Variables are invoked using `$`:
 #### if
 
 - **Syntax**: `if [ condition ]; then actions; fi`
-- **Example**: `if [[ $X -gt 0 ]]; then echo "X is greater than zero"; fi`
+- **Example**:
+  - **Command**: `if [[ $X -gt 0 ]]; then echo "X is greater than zero"; fi`
+  - **Output**: `X is greater than zero`
 
 ### Loops
 
 #### for loop
 
 - **Syntax**: `for var in list; do actions; done`
-- **Example**: `for i in {1..5}; do echo "Iteration $i"; done`
+- **Example**:
+  - **Command**: `for i in {1..5}; do echo "Iteration $i"; done`
+  - **Output**:
+    - `Iteration 1`
+    - `Iteration 2`
+    - `Iteration 3`
+    - `Iteration 4`
+    - `Iteration 5`
 
 #### while loop
 
 - **Syntax**: `while [ condition ]; do actions; done`
-- **Example**: `while [[ $X -lt 10 ]]; do echo $X; X=$((X+1)); done`
+- **Example**:
+  - **Command**: `while [[ $X -lt 10 ]]; do echo $X; X=$((X+1)); done`
+  - **Output**:
+    - `0`
+    - `1`
+    - `2`
+    - `3`
+    - `4`
+    - `5`
+    - `6`
+    - `7`
+    - `8`
+    - `9`
 
 ### Brace Expansion
 
-- **Example**: `echo {A..C}{1..3}`
-- **Output**: `A1 A2 A3 B1 B2 B3 C1 C2 C3`
+- **Example**:
+  - **Command**: `echo {A..C}{1..3}`
+  - **Output**: `A1 A2 A3 B1 B2 B3 C1 C2 C3`
 
-# Binaries
-
+# Binaries [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 ## Text Processing and Filtering
 
 ### `awk`
@@ -101,7 +121,7 @@ Variables are invoked using `$`:
 - **Use Cases**: Find and replace text within files.
 - **Example**: 
   - **Command**: `echo "hello world" | sed 's/world/universe/'`
-  - **Outputs**: `hello universe`
+  - **Output**: `hello universe`
 
 ### `tr`
 
@@ -110,9 +130,9 @@ Variables are invoked using `$`:
 - **Use Cases**: Convert lowercase to uppercase, remove or replace characters.
 - **Examples**: 
   - **Command**: `echo "hello" | tr '[:lower:]' '[:upper:]'`
-  - **Outputs**: `HELLO`
+  - **Output**: `HELLO`
   - **Command**: `echo "hello\tworld" | tr '\t' ' '`
-  - **Outputs**: `hello world`
+  - **Output**: `hello world`
         
 ### `cut`
 
@@ -121,7 +141,7 @@ Variables are invoked using `$`:
 - **Use Cases**: Extract columns from text data.
 - **Example**:  
   - **Command**: `echo "name,age" | cut -d',' -f1`
-  - **Outputs**: `name`
+  - **Output**: `name`
 
 ### `grep`
 
@@ -130,11 +150,11 @@ Variables are invoked using `$`:
 - **Use Cases**: Search for text in files, highlighting matching lines.
 - **Examples**:
   - **Command**: `echo "hello" | grep 'Hello'`
-  - **Outputs**: Nothing no match (case sensitivity)
+  - **Output**: Nothing no match (case sensitivity)
   - **Command**: `echo "hello" | grep -i 'Hello'`
-  - **Outputs**: `hello`
+  - **Output**: `hello`
   - **Command**: `echo "hello" | grep -v 'ello'`
-  - **Outputs**: Nothing excluded match
+  - **Output**: Nothing excluded match
 
 ### `uniq`
 
@@ -162,7 +182,7 @@ Variables are invoked using `$`:
     - `apple`
     - `banana`
 
-## File Manipulation / Analysis
+## File Manipulation / Analysis [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### `cat`
 
@@ -171,13 +191,13 @@ Variables are invoked using `$`:
 - **Use Cases**: Combine multiple files or display file contents.
 - **Example**:  
   - **Command**: `cat file.txt`
-  - **Outputs**: Outputs the contents of `file.txt`
+  - **Output**: Outputs the contents of `file.txt`
 
 ### `tac`
 
 - **[man tac](http://man.he.net/?topic=tac&section=all)**
 - **Use Case**: Display file contents starting from the last line.
-- **Example**:  Outputs "line3", "line2", "line1".
+- **Example**:  
   - **Command**: `echo -e "line1\nline2\nline3" | tac`
   - **Outputs**:
     - `line3`
@@ -188,16 +208,16 @@ Variables are invoked using `$`:
 
 - **[man lolcat](http://man.he.net/?topic=lolcat&section=all)**
 - **Use Case**: Display file contents with color.
-- **Example**: 
+- **Example**:  
   - **Command**: `echo -e "line1\nline2\nline3" | lolcat`
-  - **Outputs**: Colorful display
+  - **Output**: Colorful display
 
 ### `head`
 
 - **[man head](http://man.he.net/?topic=head&section=all)**
 - **Common Flags**: `-n` (number of lines)
 - **Use Cases**: View the beginning of a file.
-- **Example**: 
+- **Example**:  
   - **Command**: `echo -e "line1\nline2\nline3" | head -n 2`
   - **Outputs**:
     - `line1`
@@ -221,11 +241,11 @@ Variables are invoked using `$`:
 - **Use Cases**: Count lines, words, or characters in a file.
 - **Example**:  
   - **Command**: `echo "hello world" | wc -w`
-  - **Outputs**: `2`
+  - **Output**: `2`
   - **Command**: `echo -e "hello\nworld" | wc -l`
-  - **Outputs**: `2`
+  - **Output**: `2`
 
-## Data Manipulation
+## Data Manipulation [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### `seq`
 
@@ -262,13 +282,12 @@ Variables are invoked using `$`:
     - `2`
     - `3`
 
-## Network Tools
+## Network Tools [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### `curl`
 
 - **[man curl](http://man.he.net/?topic=curl&section=all)**
-- **Common Flags**: `-o` (output file), `-L` (follow redirects), `-k` (ignore SSL errors), `-s` (silent),
-  - `-f` (fail quietly), `-H` (header), `-A` (user-agent), `-d` (data)
+- **Common Flags**: `-o` (output file), `-L` (follow redirects), `-k` (ignore SSL errors), `-s` (silent), `-f` (fail quietly), `-H` (header), `-A` (user-agent), `-d` (data)
 - **Use Case**: Downloading files or querying web services.
 - **Example**:
   - **Command**: `curl -o example.html http://example.com`
@@ -285,7 +304,7 @@ Variables are invoked using `$`:
   - **Command**: `wget -O example.html http://example.com`
   - **Output**: Downloads `example.com` into `example.html`
 
-## Search and Locate Commands
+## Search and Locate Commands [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### `man`
 
@@ -324,7 +343,7 @@ Variables are invoked using `$`:
   - **Command**: `find /home -type d "ec2-user"`
   - **Output**: `/home/user/ec2-user`
 
-## Advanced Text Searching
+## Advanced Text Searching [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### `fzf`
 
@@ -334,7 +353,7 @@ Variables are invoked using `$`:
   - **Command**: `echo -e "apple\nbanana\ncarrot" | fzf`
   - **Output**: Interactive search interface for list selection.
 
-## Compressed File Viewing
+## Compressed File Viewing [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### `zgrep`
 
@@ -352,7 +371,7 @@ Variables are invoked using `$`:
   - **Command**: `zcat file.gz`
   - **Output**: Displays the contents of `file.gz`
 
-## Editors
+## Editors [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### `vi`
 
@@ -370,7 +389,8 @@ Variables are invoked using `$`:
   - **Command**: `nano file.txt`
   - **Output**: Opens `file.txt` in the `nano` editor.
 
-## Helpers
+
+## Helpers [Back to Index](https://github.com/mwilco03/BashBuddies/edit/main/README.md#index)
 
 ### `nohup`
 
