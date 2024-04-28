@@ -3,6 +3,7 @@
 - Case Sensitivity
 - Shares aliases with PowerShell
   - ls curl man set sleep wget mkdir mv echo cat cd cp diff history pwd rm sort tee type
+- **[man bash](http://man.he.net/?topic=bash&section=all)**
 ## Variables
 - Variables must be touching assignment operator `=`.
   - `X="Hello World"   `✔️
