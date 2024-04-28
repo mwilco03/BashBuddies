@@ -8,7 +8,7 @@ sudo apt-get install -y docker-ce
 sudo docker run --rm hello-world
 ##Moar
 DOCKER_COMPOSE_VERSION=$(curl -sL https://github.com/docker/compose/releases/ |grep -i releases/download/|cut -d"/" -f6|awk '!a[$0]++')
-sudo curl -sL "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s|tr [:upper:] [:lower:])_$(uname -m)"  -o /usr/local/bin/docker-compose
+sudo curl -sL "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s|tr [:upper:] [:lower:])-$(uname -m)"  -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 git clone https://github.com/CTFd/CTFd.git
 
