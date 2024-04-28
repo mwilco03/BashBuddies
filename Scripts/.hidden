@@ -1,1 +1,1 @@
-
+.nmap | grep -B1 Host\ is\ up| grep Nmap|cut -d"(" -f2|cut -d")" -f1 |wc -l   
