@@ -44,7 +44,7 @@ Variables are invoked using `$`:
 - `$()` Command substitution, runs the command inside the parentheses and substitutes its output.
 - `history` Shows the command history list.
 - `!!` Repeats the last command executed.
-- `!#` Repeats a specific command from the command history.
+- `!<NUM>` Replacing number with the history number you wish to execute.
 - `~/.bash_history` The default location for logging commands set by the `$HISTFILE` variable.
 - ` ` By placing a space before your command, it does not store that command to `.bash_history`.
 - `$HISTCONTROL` Variable controls which commands are stored in `.bash_history` (ignorespaces, ignoredups, both).
