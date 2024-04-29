@@ -117,6 +117,7 @@ Variables are invoked using `$`:
 ### `sed`
 
 - **[man sed](http://man.he.net/?topic=sed&section=all)**
+- **[sed handout](https://github.com/mwilco03/BashBuddies/blob/main/handouts/sed_handout.md)**
 - **Common Flags**: `-i` (edit files in-place), `-e` (add script)
 - **Use Cases**: Find and replace text within files.
 - **Example**: 
