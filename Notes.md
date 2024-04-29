@@ -36,7 +36,7 @@ Variables are invoked using `$`:
 - `-` Represents STDOUT, returns output to the screen when used with commands like `echo`.
 - `>` Sends output to a file.
 - `>>` Appends output to a file.
-- `:` Used as a null command (no operation) but returns a zero exit status, helpful in scripts for syntax purposes.
+- `:` Evaluates as true.
 - `[[]]` Enhances the traditional `[ ]` test command, allowing for more complex expressions and pattern matching.
 - `$` Prefix for accessing the value of a variable.
 - `/dev/<tcp|udp>/<HOST>/<PORT>` Used for creating TCP/UDP connections directly from the shell.
