@@ -67,8 +67,7 @@ Variables are invoked using `$`:
 #### for loop
 
 - **Syntax**: `for var in list; do actions; done`
-- **Example**:
-  - **Command**: `for i in {1..5}; do echo "Iteration $i"; done`
+- **Example**: `for i in {1..5}; do echo "Iteration $i"; done`
   - **Output**:
     - `Iteration 1`
     - `Iteration 2`
@@ -79,8 +78,7 @@ Variables are invoked using `$`:
 #### while loop
 
 - **Syntax**: `while [ condition ]; do actions; done`
-- **Example**:
-  - **Command**: `while [[ $X -lt 10 ]]; do echo $X; X=$((X+1)); done`
+- **Example**: `while [[ $X -lt 5 ]]; do echo $X; X=$((X+1)); done`
   - **Output**:
     - `0`
     - `1`
@@ -88,10 +86,6 @@ Variables are invoked using `$`:
     - `3`
     - `4`
     - `5`
-    - `6`
-    - `7`
-    - `8`
-    - `9`
 
 ### Brace Expansion
 
@@ -418,3 +412,12 @@ Variables are invoked using `$`:
 - **Example**:
   - **Command**: `fg`
   - **Output**: Allows all backgrounded processes to be presented.
+
+### `nmap`
+
+- **[man nmap](http://man.he.net/?topic=nmap&section=all)**
+- **[nmap handout](https://github.com/mwilco03/BashBuddies/blob/main/handouts/nmap_handout.md)**
+- **Use Case**: Network mapping tool.
+- **Example**:
+  - **Command**: `nmap 10.2.72.0/25`
+  - **Output**: Returns information about the open ports on the specified net.
