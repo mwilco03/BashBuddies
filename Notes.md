@@ -51,7 +51,7 @@ Variables are invoked using `$`:
 - `$HISTSIZE` Dictates the size (number of lines) of history to retain.
 - `$HISTFILESIZE` Dictates the size in bytes of history to retain.
 - `^FIND^REPLACE` Rerun the last command, finding and replacing the text.
-- `.bash_profile` The code that is run when you login. Useful to store functions and aliases.
+- `.bash_profile` or `.profile` The code that is run when you login. Useful to store functions and aliases.
 
 ### Conditional Statements
 
