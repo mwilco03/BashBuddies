@@ -420,3 +420,11 @@ Variables are invoked using `$`:
 - **Example**:
   - **Command**: `nmap 10.2.72.0/25`
   - **Output**: Returns information about the open ports on the specified net.
+
+### `jq`
+
+- **[man nmap](http://man.he.net/?topic=jq&section=all)**
+- **Use Case**: JSON object parsing tool.
+- **Example**:
+  - **Command**: `cat file.json|jq .keys`
+  - **Output**: Returns information from json keys.
