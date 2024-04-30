@@ -58,8 +58,7 @@ Variables are invoked using `$`:
 #### if
 
 - **Syntax**: `if [ condition ]; then actions; fi`
-- **Example**:
-  - **Command**: `if [[ $X -gt 0 ]]; then echo "X is greater than zero"; fi`
+- **Example**: `if [[ $X -gt 0 ]]; then echo "X is greater than zero"; fi`
   - **Output**: `X is greater than zero`
 
 ### Loops
