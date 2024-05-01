@@ -22,7 +22,6 @@ Variables are invoked using `$`:
 
 ### Types
 
-- **Scalars**: Hold single values, either a string or a number.
 - **Arrays**: Store multiple values.
   - **Indexed arrays**: `arr=(value1 value2 value3)`
   - **Associative arrays** (declare explicitly): `declare -A arr; arr[key]=value`
