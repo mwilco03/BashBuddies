@@ -1,10 +1,10 @@
-**ShiftMoto Mobility Internet Usage Policy**
+**Cyb3rMoto Mobility Internet Usage Policy**
 
 **1. Introduction**
-This policy outlines the acceptable use of ShiftMoto Mobility's internet resources, ensuring that employees adhere to legal, ethical, and professional standards. Compliance with this policy is mandatory for all employees, contractors, and other users to safeguard company operations and reputation.
+This policy outlines the acceptable use of Cyb3rMoto Mobility's internet resources, ensuring that employees adhere to legal, ethical, and professional standards. Compliance with this policy is mandatory for all employees, contractors, and other users to safeguard company operations and reputation.
 
 **2. Scope**
-This policy applies to all employees, contractors, and anyone who has access to ShiftMoto Mobility's internet and digital services.
+This policy applies to all employees, contractors, and anyone who has access to Cyb3rMoto Mobility's internet and digital services.
 
 **3. Prohibited Activities**
 To maintain a secure and professional environment, the following activities are explicitly prohibited:
