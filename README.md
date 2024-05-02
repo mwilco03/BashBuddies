@@ -60,3 +60,4 @@ Thank you.
   - [nohup](https://github.com/mwilco03/BashBuddies/blob/main/Notes.md#nohup)
   - [tmux](https://github.com/mwilco03/BashBuddies/blob/main/Notes.md#tmux)
   - [fg](https://github.com/mwilco03/BashBuddies/blob/main/Notes.md#fg)
+=
