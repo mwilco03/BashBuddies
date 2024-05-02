@@ -4,5 +4,6 @@
 # returns :   string of random characters
 
 rando() { shuf -en $1 {{a..z},{0..9},{A..Z}} | tr -d $'\n' ; }
-export -f rando
+export -f rando 
+# shuf -en $1 {{a..z},{0..9},{A..Z}} | tr -d $'\n'
 # shuf -en $1 {{a..z},{0..9},{A..Z}} | tr -d $'\n'
